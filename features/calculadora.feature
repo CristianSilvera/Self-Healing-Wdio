@@ -1,6 +1,6 @@
 Feature: Calculator Functionality
 
-  Scenario Outline: Sumar dos números
+  Scenario Outline: Add two numbers
     Given I open the calculator app
     When I enter <a>
     And I press add

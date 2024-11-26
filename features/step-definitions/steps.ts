@@ -13,7 +13,7 @@ When('I enter {int}', async (number: number) => {
 });
 
 When('I press add', async () => {
-    await calculadoraPage.clicBtnMais();
+    await calculadoraPage.clicBtnMas();
 });
 
 When('I press equal', async () => {

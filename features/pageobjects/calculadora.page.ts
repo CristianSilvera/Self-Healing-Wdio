@@ -5,14 +5,14 @@ class CalculatorPage {
 
     // Localización de los botones de números con múltiples estrategias
     get btnNumero() {
-        return (numeroDesejado: string) => this.getElementWithBackupSelectors([
-            `~${numeroDesejado}`, // Usar ~ correctamente sin las plantillas de cadena
-            `android=new UiSelector().description("${numeroDesejado}")`, // Usar descripción como backup
+        return (numeroDeseado: string) => this.getElementWithBackupSelectors([
+            `~${numeroDeseado}`, // Usar ~ correctamente sin las plantillas de cadena
+            `android=new UiSelector().description("${numeroDeseado}")`, // Usar descripción como backup
         ]);
     }
 
     // Localización del botón de suma con múltiples estrategias
-    get btnMais() {
+    get btnMas() {
         return this.getElementWithBackupSelectors([
             '~máss',
             'android=new UiSelector().description("sumar")',
@@ -35,15 +35,15 @@ class CalculatorPage {
     }
 
     // Método para hacer clic en los botones de número con lógica de retry y recuperación
-    public async clicBtnNumero(numeroDesejado: string) {
-        const btn = await this.btnNumero(numeroDesejado); // Obtén el botón específico para el número
+    public async clicBtnNumero(numeroDeseado: string) {
+        const btn = await this.btnNumero(numeroDeseado); // Obtén el botón específico para el número
 
         // Intentar encontrar y hacer clic en el botón con reintentos
         await this.retry(() => this.tryClickButton(btn));
     }
 
-    public async clicBtnMais() {
-        const btn = await this.btnMais; // Obtener el botón de suma
+    public async clicBtnMas() {
+        const btn = await this.btnMas; // Obtener el botón de suma
 
         await this.retry(() => this.tryClickButton(btn)); // Intentar hacer clic con reintentos
     }
